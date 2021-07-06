@@ -1,0 +1,55 @@
+.link-navbar{
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: black !important;
+    text-decoration: none !important;
+    padding: 0 25px;
+    text-align: center;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/*Animation that makes something bigger then smaller*/
+.animated.link-navbar{
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: scale-up;
+    animation-name: scale-up;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+
+/* define animation scale-up*/
+@-webkit-keyframes scale-up{
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+}
+@keyframes scale-up{
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
