@@ -53,6 +53,23 @@ export default function Admin(){
         setMovies(updatedMovies);
     }
 
+    function deleteMovie(index){
+        
+        let updatedMovies = [...movies];
+        console.log(updatedMovies)
+        //set every movie recomended to false
+        updatedMovies.map((movie, i) => {
+            if(i == index){
+                updatedMovies.splice(i, 1);
+            }
+        });
+        const moviesJSON = JSON.stringify(updatedMovies);
+        localStorage.setItem("movies", moviesJSON);
+        setMovies(updatedMovies);
+    };
+
+    function editMovie(){};
+
     return(
     
     <>
@@ -75,14 +92,15 @@ export default function Admin(){
                     <div className="text-center mb-2"><h3>Listado de películas</h3></div>
                     <div className="row">
                         {movies.map((movie, index) => {
-                            console.log("recomended: " + movie.recomended)
                             return (
                                 <div key={index} className="col-12 my-2 border p-2 rounded bg-warning">
                                     <span>Título: {movie.title} - Género: {movie.genre} - Recomendada:{
                                         movie.recomended ? <span className="text-success h4"> ✓</span> : <span className="text-danger h4"> ✗</span>
                                     }
                                     </span>
-                                    <button className="float-right btn btn-success" onClick={()=>{ recomendMovie(index)}}>Destacar película</button>
+                                    <button className="float-right btn btn-success mx-2" onClick={()=>{ recomendMovie(index)}}>Destacar película</button>
+                                    <button className="float-right btn btn-success mx-2" onClick={()=>{ deleteMovie(index)}}>Eliminar película</button>
+                                    <button className="float-right btn btn-success mx-2" onClick={()=>{ editMovie(index)}}>Editar película</button>
                                 </div>
                             );
                         })}
